@@ -1,0 +1,25 @@
+server:
+  port: 8080
+spring:
+  jackson:
+    serialization:
+      indent-output: true
+  datasource:
+#    url: jdbc:postgresql://host.docker.internal:5432/aderans
+    url: jdbc:postgresql://localhost:5432/aderans
+    username: postgres
+#    username: ENC(vw/dgMa282xqiKYd88ociXrt3MYBxZvD)
+    password: kybe3buoi
+#    password: ENC(h3uE/uJNUtpyyYI9pY1i+OKMUGkuwdA+)
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+  liquibase:
+    enabled: true
+    change-log: classpath:changelog/changelog-master.xml
